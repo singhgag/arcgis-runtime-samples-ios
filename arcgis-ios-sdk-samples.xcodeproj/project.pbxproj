@@ -898,13 +898,6 @@
 /* End PBXBuildRule section */
 
 /* Begin PBXContainerItemProxy section */
-		4C8C80BB23AC3FF5000333B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 97466010234265F6008EF35A /* ArcGISToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E4685B03237CA3C400F168CF;
-			remoteInfo = ArcGISToolkitTests;
-		};
 		4CD2B5592142EAF900767D87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3E23A9D81AFC28F6002E2214 /* Project object */;
@@ -4025,7 +4018,6 @@
 			isa = PBXGroup;
 			children = (
 				97466015234265F6008EF35A /* ArcGISToolkit.framework */,
-				4C8C80BC23AC3FF5000333B3 /* ArcGISToolkitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4743,13 +4735,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		4C8C80BC23AC3FF5000333B3 /* ArcGISToolkitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ArcGISToolkitTests.xctest;
-			remoteRef = 4C8C80BB23AC3FF5000333B3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		97466015234265F6008EF35A /* ArcGISToolkit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -5596,7 +5581,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HA9FCJGHQ6;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "arcgis-ios-sdk-samples/Info.plist";
@@ -5604,9 +5589,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 100.10.0;
+				MARKETING_VERSION = 100.10.0.3045;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3045";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5625,7 +5610,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = HA9FCJGHQ6;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "arcgis-ios-sdk-samples/Info.plist";
@@ -5633,9 +5618,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 100.10.0;
+				MARKETING_VERSION = 100.10.0.3045;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3045";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
