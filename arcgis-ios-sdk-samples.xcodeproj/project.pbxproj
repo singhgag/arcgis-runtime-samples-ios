@@ -5589,9 +5589,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 100.10.0.3045;
+				MARKETING_VERSION = 100.10.0.3046;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3045";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3046";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5618,9 +5618,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 100.10.0.3045;
+				MARKETING_VERSION = 100.10.0.3046;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3045";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.arcgis-ios-sdk-samples.3046";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

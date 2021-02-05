@@ -28,7 +28,8 @@ class TLUsingURLViewController: UIViewController {
         
         //initialize the map and add the tiled layer as an operational layer
         self.map = AGSMap()
-        self.map.operationalLayers.add(tiledLayer)
+        //self.map.operationalLayers.add(tiledLayer)
+        self.map.basemap.baseLayers.add(tiledLayer)
         
         //assign the map to the map view
         self.mapView.map = self.map
