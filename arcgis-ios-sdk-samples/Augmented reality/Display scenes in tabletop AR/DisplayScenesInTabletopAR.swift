@@ -39,7 +39,7 @@ class DisplayScenesInTabletopAR: UIViewController {
 
         // Configure a starting invisible scene with a tiling scheme matching that of the scene that will be used
         arView.sceneView.scene = AGSScene(tilingScheme: .geographic)
-        arView.clippingDistance = 400
+//        arView.clippingDistance = 400
 
         // Listen for tracking state changes
         arView.arSCNViewDelegate = self
