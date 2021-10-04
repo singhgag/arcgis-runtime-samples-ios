@@ -33,14 +33,12 @@ class EditFeaturesOnlineViewController: UIViewController, AGSGeoViewTouchDelegat
         // add the source code button item to the right of navigation bar
         (self.navigationItem.rightBarButtonItem as! SourceCodeBarButtonItem).filenames = ["EditFeaturesOnlineViewController", "FeatureTemplatePickerViewController"]
         
-        self.map = AGSMap(basemapStyle: .arcGISTopographic)
+        let portal = AGSPortal.arcGISOnline(withLoginRequired: true)
+        let portalItem = AGSPortalItem(portal: portal, itemID: "b3e856a71fea4463a68f27f7d13fb599")
+        self.map = AGSMap(item: portalItem)
+
         self.mapView.map = self.map
-        self.mapView.setViewpoint(AGSViewpoint(center: AGSPoint(x: -9184518.55, y: 3240636.90, spatialReference: .webMercator()), scale: 7e5))
         self.mapView.touchDelegate = self
-        
-        let featureTable = AGSServiceFeatureTable(url: URL(string: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0")!)
-        let featureLayer = AGSFeatureLayer(featureTable: featureTable)
-        self.map.operationalLayers.add(featureLayer)
         
         // initialize sketch editor and assign to map view
         self.sketchEditor = AGSSketchEditor()
@@ -48,20 +46,17 @@ class EditFeaturesOnlineViewController: UIViewController, AGSGeoViewTouchDelegat
         
         // hide the sketchToolbar initially
         self.sketchToolbar.isHidden = true
-        
-        // store the feature layer for later use
-        self.featureLayer = featureLayer
     }
     
     private func dismissFeatureTemplatePickerViewController() {
         self.dismiss(animated: true)
     }
     
-    func applyEdits() {
+    func applyEdits(feature: AGSFeature) {
         // show progress hud
         UIApplication.shared.showProgressHUD(message: "Applying edits")
         
-        (featureLayer.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (_, error) in
+        (feature.featureTable as! AGSServiceFeatureTable).applyEdits { [weak self] (_, error) in
             UIApplication.shared.hideProgressHUD()
             
             if let error = error {
@@ -79,12 +74,12 @@ class EditFeaturesOnlineViewController: UIViewController, AGSGeoViewTouchDelegat
             lastQuery.cancel()
         }
         
-        self.lastQuery = self.mapView.identifyLayer(self.featureLayer, screenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false, maximumResults: 10) { [weak self] (identifyLayerResult: AGSIdentifyLayerResult) in
+        self.lastQuery = self.mapView.identifyLayers(atScreenPoint: screenPoint, tolerance: 12, returnPopupsOnly: false) { [weak self] (identifyLayerResults, error) in
             guard let self = self else { return }
-            if let error = identifyLayerResult.error {
+            if let error = error {
                 print(error)
-            } else if !identifyLayerResult.geoElements.isEmpty {
-                let popups = identifyLayerResult.geoElements.map(AGSPopup.init(geoElement:))
+            } else if let geoElements = identifyLayerResults?.first?.geoElements {
+                let popups = geoElements.map(AGSPopup.init(geoElement:))
                 self.popupsViewController = AGSPopupsViewController(popups: popups, containerStyle: .navigationBar)
                 self.popupsViewController.modalPresentationStyle = .formSheet
                 self.popupsViewController.isModalInPresentation = true
@@ -149,7 +144,7 @@ class EditFeaturesOnlineViewController: UIViewController, AGSGeoViewTouchDelegat
         feature.geometry = AGSGeometryEngine.normalizeCentralMeridian(of: feature.geometry!)
         
         // apply edits
-        self.applyEdits()
+        self.applyEdits(feature: feature)
     }
     
     func popupsViewControllerDidFinishViewingPopups(_ popupsViewController: AGSPopupsViewController) {
